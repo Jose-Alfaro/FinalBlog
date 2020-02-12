@@ -1,0 +1,24 @@
+---
+title: NFL Wide Receiver Analysis
+author: Jose Alfaro
+date: '2020-01-23'
+slug: NFL-Wide-Receiver
+categories:
+  - Sports
+tags:
+  - blog
+  - sports
+  - NFL
+
+  
+  
+
+
+
+thumbnailImage: //d1u9biwaxjngwg.cloudfront.net/cover-image-showcase/city-750.jpg
+thumbnailImagePosition: left
+  
+---
+
+<!--more-->
+NFL text

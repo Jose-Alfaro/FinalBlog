@@ -1,0 +1,17 @@
+---
+title: NFL Quarterbacks
+author: Jose Alfaro
+date: '2020-01-23'
+slug: NFL-Quarterbacks
+categories:
+  - Sports
+  - R
+tags:
+  - blog
+  - sports
+  - NFL
+keywords:
+  - tech
+---
+
+<!--more-->

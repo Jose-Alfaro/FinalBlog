@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>The Outlier</title>
+    <link>/</link>
+    <description>Recent content on The Outlier</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 23 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>NFL Quarterback Analysis</title>
+      <link>/2020/01/nfl-quarterback/</link>
+      <pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/01/nfl-quarterback/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;This post is a continuation of our Running Back analysis post. Here we will take a closer look into some </description>
+    </item>
+    
+    <item>
+      <title>NFL Wide Receiver Analysis</title>
+      <link>/2020/01/nfl-wide-receiver/</link>
+      <pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/01/nfl-wide-receiver/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;This post is a continuation of our Running Back analysis post. Here we will take a closer look into some </description>
+    </item>
+    
+    <item>
+      <title>NFL Running Back Analysis</title>
+      <link>/2020/01/nfl-running-back-analysis/</link>
+      <pubDate>Wed, 22 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/01/nfl-running-back-analysis/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;The NFL is a gold mine for interesting statistics such as the average number of passing yards per quarterback, the average number of yards gained by running back, and the number of receiving yards per top receivers. In this post we conduct some exploratory analysis on the top running backs in the NFL to determine what made these running backs so successful in 2018. </description>
+    </item>
+    
+    <item>
+      <title>Hello R Markdown</title>
+      <link>/2015/07/hello-r-markdown/</link>
+      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      
+      <guid>/2015/07/hello-r-markdown/</guid>
+      <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+You can embed an R code chunk like this:
+summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
+    </item>
+    
+    <item>
+      <title>Welcome to Tranquilpeak 0.4.7-BETA</title>
+      <link>/2015/06/welcome-to-tranquilpeak-0.4.7-beta/</link>
+      <pubDate>Mon, 15 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/06/welcome-to-tranquilpeak-0.4.7-beta/</guid>
+      <description>&lt;p&gt;Tranquilpeak is a gorgeous responsive theme for Hugo blog framework. It has many features and integrated services to improve user experience.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Who&#39;s using Tranquilpeak Hugo Theme</title>
+      <link>/2015/06/who-is-using-tranquilpeak-hugo-theme/</link>
+      <pubDate>Sun, 14 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/06/who-is-using-tranquilpeak-hugo-theme/</guid>
+      <description>&lt;p&gt;Here you can find a list of the blogs that use Tranquilpeak theme, with different styles and customizations.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Elements showcase</title>
+      <link>/2015/05/elements-showcase/</link>
+      <pubDate>Thu, 28 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/05/elements-showcase/</guid>
+      <description>&lt;p&gt;Check out how Tranquilpeak theme display well HTML elements (title, paragraph, blockquote, table and more..). It&#39;s simple and elegant.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Cover image showcase</title>
+      <link>/2015/05/cover-image-showcase/</link>
+      <pubDate>Wed, 13 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/05/cover-image-showcase/</guid>
+      <description>&lt;p&gt;Tranquilpeak integrate a unique &amp;ldquo;cover image&amp;rdquo; feature. Open this post to see how this feature sublimate your article.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>highlighted code showcase</title>
+      <link>/2015/03/highlighted-code-showcase/</link>
+      <pubDate>Mon, 23 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/2015/03/highlighted-code-showcase/</guid>
+      <description>&lt;p&gt;Tranquilpeak Hugo theme have its own theme to highlight source code. It&#39;s based on GitHub theme: simple and elegant. Check out how it sublimate source codes.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Tags plugins showcase</title>
+      <link>/2014/10/tags-plugins-showcase/</link>
+      <pubDate>Wed, 29 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/2014/10/tags-plugins-showcase/</guid>
+      <description>&lt;p&gt;This post is used to show how tag plugins are displayed. See &lt;a href=&#34;https://github.com/kakawait/hugo-tranquilpeak-theme/blob/master/docs/user.md#tags&#34;&gt;docs&lt;/a&gt; for more info.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hidden social section showcase</title>
+      <link>/2014/08/hidden-social-section-showcase/</link>
+      <pubDate>Sun, 17 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/2014/08/hidden-social-section-showcase/</guid>
+      <description>&lt;p&gt;This post is used to show how a site looks if the social section is hidden.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hidden tag section showcase</title>
+      <link>/2014/08/hidden-tag-section-showcase/</link>
+      <pubDate>Sat, 16 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/2014/08/hidden-tag-section-showcase/</guid>
+      <description>&lt;p&gt;This post is used to show how a site looks if the tag section is hidden.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hidden pagination showcase</title>
+      <link>/2014/08/hidden-pagination-showcase/</link>
+      <pubDate>Fri, 15 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/2014/08/hidden-pagination-showcase/</guid>
+      <description>&lt;p&gt;This post is used to show how a site looks if the pagination is hidden.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Video integrations showcase</title>
+      <link>/2014/08/video-integrations-showcase/</link>
+      <pubDate>Sat, 09 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/2014/08/video-integrations-showcase/</guid>
+      <description>&lt;p&gt;Youtube and Vimeo videos are easily integrated thanks to tags plugins. Of course, you can add video other platforms like dailymotion.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>中文測試</title>
+      <link>/2013/10/chinese-test/</link>
+      <pubDate>Wed, 02 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/2013/10/chinese-test/</guid>
+      <description>&lt;p&gt;This is a chinese test post to show you how chinese is displayed.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Image gallery showcase</title>
+      <link>/2013/02/image-gallery-showcase/</link>
+      <pubDate>Mon, 18 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/2013/02/image-gallery-showcase/</guid>
+      <description>&lt;p&gt;And here is the image gallery!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>日本語テスト</title>
+      <link>/2013/01/japanese-test/</link>
+      <pubDate>Wed, 02 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/2013/01/japanese-test/</guid>
+      <description>&lt;p&gt;This is a Japanese test post to show you how japanese is displayed.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/</guid>
+      <description>d3heatmap{&#34;x&#34;:{&#34;rows&#34;:{&#34;members&#34;:15,&#34;height&#34;:0.104316729577723,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;},&#34;children&#34;:[{&#34;members&#34;:11,&#34;height&#34;:0.0975481736963588,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;},&#34;children&#34;:[{&#34;members&#34;:6,&#34;height&#34;:0.0659786501219566,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;},&#34;children&#34;:[{&#34;members&#34;:3,&#34;height&#34;:0.0523998525800294,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;},&#34;children&#34;:[{&#34;members&#34;:2,&#34;height&#34;:0.0418646318379997,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;},&#34;children&#34;:[{&#34;members&#34;:1,&#34;height&#34;:0,&#34;label&#34;:&#34;13&#34;,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;}},{&#34;members&#34;:1,&#34;height&#34;:0,&#34;label&#34;:&#34;9&#34;,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;}}]},{&#34;members&#34;:1,&#34;height&#34;:0,&#34;label&#34;:&#34;15&#34;,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;}}]},{&#34;members&#34;:3,&#34;height&#34;:0.048276027072973,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;},&#34;children&#34;:[{&#34;members&#34;:2,&#34;height&#34;:0.0317113068401386,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;},&#34;children&#34;:[{&#34;members&#34;:1,&#34;height&#34;:0,&#34;label&#34;:&#34;14&#34;,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;}},{&#34;members&#34;:1,&#34;height&#34;:0,&#34;label&#34;:&#34;5&#34;,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;}}]},{&#34;members&#34;:1,&#34;height&#34;:0,&#34;label&#34;:&#34;3&#34;,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;}}]}]},{&#34;members&#34;:5,&#34;height&#34;:0.07020167226026,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;},&#34;children&#34;:[{&#34;members&#34;:4,&#34;height&#34;:0.0615853953099719,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;},&#34;children&#34;:[{&#34;members&#34;:3,&#34;height&#34;:0.0501616688733439,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;},&#34;children&#34;:[{&#34;members&#34;:2,&#34;height&#34;:0.0407823549617194,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;},&#34;children&#34;:[{&#34;members&#34;:1,&#34;height&#34;:0,&#34;label&#34;:&#34;12&#34;,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;}},{&#34;members&#34;:1,&#34;height&#34;:0,&#34;label&#34;:&#34;6&#34;,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;}}]},{&#34;members&#34;:1,&#34;height&#34;:0,&#34;label&#34;:&#34;8&#34;,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;}}]},{&#34;members&#34;:1,&#34;height&#34;:0,&#34;label&#34;:&#34;2&#34;,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;}}]},{&#34;members&#34;:1,&#34;height&#34;:0,&#34;label&#34;:&#34;7&#34;,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;}}]}]},{&#34;members&#34;:4,&#34;height&#34;:0.0472822423275524,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;},&#34;children&#34;:[{&#34;members&#34;:2,&#34;height&#34;:0.0383222659497776,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;},&#34;children&#34;:[{&#34;members&#34;:1,&#34;height&#34;:0,&#34;label&#34;:&#34;11&#34;,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;}},{&#34;members&#34;:1,&#34;height&#34;:0,&#34;label&#34;:&#34;1&#34;,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;}}]},{&#34;members&#34;:2,&#34;height&#34;:0.0381416674382618,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;},&#34;children&#34;:[{&#34;members&#34;:1,&#34;height&#34;:0,&#34;label&#34;:&#34;10&#34;,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;}},{&#34;members&#34;:1,&#34;height&#34;:0,&#34;label&#34;:&#34;4&#34;,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;}}]}]}]},&#34;cols&#34;:null,&#34;matrix&#34;:{&#34;data&#34;:[&#34;0.118&#34;,&#34;0.085&#34;,&#34;0.048&#34;,&#34;0&#34;,&#34;0.125&#34;,&#34;0.093&#34;,&#34;0.059&#34;,&#34;0&#34;,&#34;0.1&#34;,&#34;0.095&#34;,&#34;0.051&#34;,&#34;0.002&#34;,&#34;0.095&#34;,&#34;0.067&#34;,&#34;0.056&#34;,&#34;0.007&#34;,&#34;0.098&#34;,&#34;0.093&#34;,&#34;0.044&#34;,&#34;0&#34;,&#34;0.138&#34;,&#34;0.105&#34;,&#34;0.066&#34;,&#34;0&#34;,&#34;0.094&#34;,&#34;0.078&#34;,&#34;0.052&#34;,&#34;0.002&#34;,&#34;0.083&#34;,&#34;0.088&#34;,&#34;0.054&#34;,&#34;0.007&#34;,&#34;0.108&#34;,&#34;0.077&#34;,&#34;0.055&#34;,&#34;0.002&#34;,&#34;0.113&#34;,&#34;0.124&#34;,&#34;0.071&#34;,&#34;0.003&#34;,&#34;0.094&#34;,&#34;0.087&#34;,&#34;0.062&#34;,&#34;0.005&#34;,&#34;0.076&#34;,&#34;0.082&#34;,&#34;0.035&#34;,&#34;0.005&#34;,&#34;0.083&#34;,&#34;0.077&#34;,&#34;0.064&#34;,&#34;0&#34;,&#34;0.119&#34;,&#34;0.105&#34;,&#34;0.073&#34;,&#34;0&#34;,&#34;0.087&#34;,&#34;0.072&#34;,&#34;0.068&#34;,&#34;0.002&#34;,&#34;0.09&#34;,&#34;0.083&#34;,&#34;0.07&#34;,&#34;0.008&#34;,&#34;0.092&#34;,&#34;0.072&#34;,&#34;0.046&#34;,&#34;0.004&#34;,&#34;0.123&#34;,&#34;0.104&#34;,&#34;0.078&#34;,&#34;0&#34;,&#34;0.074&#34;,&#34;0.079&#34;,&#34;0.06&#34;,&#34;0.002&#34;,&#34;0.093&#34;,&#34;0.097&#34;,&#34;0.065&#34;,&#34;0.011&#34;,&#34;0.084&#34;,&#34;0.081&#34;,&#34;0.057&#34;,&#34;0&#34;,&#34;0.148&#34;,&#34;0.117&#34;,&#34;0.066&#34;,&#34;0.006&#34;,&#34;0.067&#34;,&#34;0.083&#34;,&#34;0.047&#34;,&#34;0&#34;,&#34;0.1&#34;,&#34;0.074&#34;,&#34;0.063&#34;,&#34;0.007&#34;,&#34;0.076&#34;,&#34;0.073&#34;,&#34;0.056&#34;,&#34;0&#34;,&#34;0.095&#34;,&#34;0.104&#34;,&#34;0.085&#34;,&#34;0.002&#34;,&#34;0.071&#34;,&#34;0.088&#34;,&#34;0.053&#34;,&#34;0&#34;,&#34;0.105&#34;,&#34;0.098&#34;,&#34;0.083&#34;,&#34;0.01&#34;,&#34;0.097&#34;,&#34;0.072&#34;,&#34;0.065&#34;,&#34;0&#34;,&#34;0.094&#34;,&#34;0.088&#34;,&#34;0.088&#34;,&#34;0&#34;,&#34;0.065&#34;,&#34;0.07&#34;,&#34;0.063&#34;,&#34;0.004&#34;,&#34;0.106&#34;,&#34;0.105&#34;,&#34;0.065&#34;,&#34;0.016&#34;,&#34;0.064&#34;,&#34;0.074&#34;,&#34;0.06&#34;,&#34;0.002&#34;,&#34;0.109&#34;,&#34;0.096&#34;,&#34;0.082&#34;,&#34;0.002&#34;,&#34;0.065&#34;,&#34;0.064&#34;,&#34;0.059&#34;,&#34;0.005&#34;,&#34;0.134&#34;,&#34;0.094&#34;,&#34;0.074&#34;,&#34;0.017&#34;,&#34;0.084&#34;,&#34;0.069&#34;,&#34;0.042&#34;,&#34;0&#34;,&#34;0.105&#34;,&#34;0.086&#34;,&#34;0.057&#34;,&#34;0.002&#34;,&#34;0.1&#34;,&#34;0.086&#34;,&#34;0.068&#34;,&#34;0.005&#34;,&#34;0.123&#34;,&#34;0.094&#34;,&#34;0.069&#34;,&#34;0.011&#34;,&#34;0.082&#34;,&#34;0.082&#34;,&#34;0.051&#34;,&#34;0.002&#34;,&#34;0.067&#34;,&#34;0.105&#34;,&#34;0.074&#34;,&#34;0.002&#34;,&#34;0.065&#34;,&#34;0.097&#34;,&#34;0.078&#34;,&#34;0.006&#34;,&#34;0.105&#34;,&#34;0.095&#34;,&#34;0.082&#34;,&#34;0.008&#34;,&#34;0.088&#34;,&#34;0.069&#34;,&#34;0.058&#34;,&#34;0&#34;,&#34;0.121&#34;,&#34;0.079&#34;,&#34;0.079&#34;,&#34;0&#34;,&#34;0.095&#34;,&#34;0.069&#34;,&#34;0.047&#34;,&#34;0.005&#34;,&#34;0.137&#34;,&#34;0.074&#34;,&#34;0.063&#34;,&#34;0.014&#34;,&#34;0.091&#34;,&#34;0.062&#34;,&#34;0.062&#34;,&#34;0&#34;,&#34;0.136&#34;,&#34;0.102&#34;,&#34;0.071&#34;,&#34;0.003&#34;,&#34;0.089&#34;,&#34;0.055&#34;,&#34;0.053&#34;,&#34;0&#34;,&#34;0.123&#34;,&#34;0.079&#34;,&#34;0.067&#34;,&#34;0.008&#34;,&#34;0.072&#34;,&#34;0.061&#34;,&#34;0.055&#34;,&#34;0.005&#34;,&#34;0.129&#34;,&#34;0.097&#34;,&#34;0.081&#34;,&#34;0&#34;,&#34;0.074&#34;,&#34;0.077&#34;,&#34;0.068&#34;,&#34;0.003&#34;,&#34;0.119&#34;,&#34;0.089&#34;,&#34;0.055&#34;,&#34;0.016&#34;,&#34;0.073&#34;,&#34;0.054&#34;,&#34;0.065&#34;,&#34;0&#34;,&#34;0.14&#34;,&#34;0.088&#34;,&#34;0.069&#34;,&#34;0.002&#34;,&#34;0.081&#34;,&#34;0.065&#34;,&#34;0.051&#34;,&#34;0.002&#34;,&#34;0.139&#34;,&#34;0.093&#34;,&#34;0.056&#34;,&#34;0.022&#34;],&#34;dim&#34;:[15,16],&#34;rows&#34;:[&#34;13&#34;,&#34;9&#34;,&#34;15&#34;,&#34;14&#34;,&#34;5&#34;,&#34;3&#34;,&#34;12&#34;,&#34;6&#34;,&#34;8&#34;,&#34;2&#34;,&#34;7&#34;,&#34;11&#34;,&#34;1&#34;,&#34;10&#34;,&#34;4&#34;],&#34;cols&#34;:[&#34;Q1- Down: 1&#34;,&#34;Q1- Down: 2&#34;,&#34;Q1- Down: 3&#34;,&#34;Q1- Down: 4&#34;,&#34;Q2- Down: 1&#34;,&#34;Q2- Down: 2&#34;,&#34;Q2- Down: 3&#34;,&#34;Q2- Down: 4&#34;,&#34;Q3- Down: 1&#34;,&#34;Q3- Down: 2&#34;,&#34;Q3- Down: 3&#34;,&#34;Q3- Down: 4&#34;,&#34;Q4- Down: 1&#34;,&#34;Q4- Down: 2&#34;,&#34;Q4- Down: 3&#34;,&#34;Q4- Down: 4&#34;]},&#34;image&#34;:&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAQCAYAAADJViUEAAADeklEQVQokQXBe1DTBQDA8e9vG7A1DCGgDfCYMB6JvGS8xGCYF0+7Ig7qDitRuhK8qw7LO3uMS/0Dve4sCO16mHgGp9gfkp0IlcSjJMgVRjxPHo23DNjGHo5fn48QVHFN3J2moUwXTM4OFUGvXiYhNYxiXRDlKRr0tb8gV3hwRL+dwp1q8ut60O8IJNTPC+Gh9ZFYWNeNXOHBu89oyYoMwC/nNJEZKRRnaqjWa8mt6yYiyIdsrS/PxwZR8Z0Ri92FNKbosMFQEMO51iGsUglmu51L1QV80jrEne4x1hRenC9NoP7nccaXNli0OfggJ4rfZ9aQKva8YtD6KTm+/ym+N86yYHExumShsSKN+rYRTGYHEzYn35bt4rrRhMxDRv+MmZqcKKTB+w4ajHPrDM6vcyovmi97HqBUeCK63Zw9oONk413MDhHjso2vXk7g5r+LLK07mbfYEKyOTbHwfC8uh5u8RDWHU0M52vI3njIpmRFbOZAUim9yFU+k7uXN4jgqM8I49+s4w3NWJO3D89w8shuXy41p3cWl/mkaSuJRymXcn9vgysAUK311aKOepKVrkteb7nEsW0uwrwJh/4W74ks6NUVxIaTWtKP09iRUtYVzRbEUNfSSEh2Av1LGO1la8up78JZ7AHD1UDLCqfZRcdXuxl/pwRvpGtJr2pHJJJRkaShL3EaTcYbpVSeR/nIOpWpIPHELlcqbkABvJG9lhvO4lxRRFLncP0X3h/sY+eM+twcXONM5QWl8CItmO7NrLnrHljGezsW8YsfhciMNKzxoqEjbzvHmv1i2uxlbttHyXi7vf9GF8Jic+Q0Xhpworv5p4p5pjU3c1BbHM/HQinRSVWAYXnfS+JqO6dUN2oyzDMxZaK3OpuHWCAtWJ79Nm/m0KJbmgf8QJRImVyxU7glHMju9hM3xiKPXB3k7KxyZh4TALZ7cGVug88Re+n7sYqu3F1/3TdJQEs/AgxVszk0+755A2HCJol/+GWKe1qFPCOKjZyMp/aaPEp0amSDwYnwI28qv8Fx+LKF+cqoywvi4YxSNrxfCxb4p8YWdwajLLrIrLYIwtQ8XSuOovjGE0+VG7ePFMb2WyMprJCVrKE5SkR0WyNnOCSQC8FnXBMtN5fTf+Amz1cHJ2yPUFkaz4XTjKRX44R8TYw3FdDS30dg7Q8f4PFXpofwPpI1wuVcH2JgAAAAASUVORK5CYII=&#34;,&#34;theme&#34;:null,&#34;options&#34;:{&#34;xaxis_height&#34;:80,&#34;yaxis_width&#34;:120,&#34;xaxis_font_size&#34;:null,&#34;yaxis_font_size&#34;:null,&#34;brush_color&#34;:&#34;#0000FF&#34;,&#34;show_grid&#34;:3,&#34;anim_duration&#34;:500}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}{&#34;viewer&#34;:{&#34;width&#34;:450,&#34;height&#34;:350,&#34;padding&#34;:15,&#34;fill&#34;:true},&#34;browser&#34;:{&#34;width&#34;:960,&#34;height&#34;:500,&#34;padding&#34;:40,&#34;fill&#34;:true}}</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/1/01/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/1/01/</guid>
+      <description>d3heatmap{&#34;x&#34;:{&#34;rows&#34;:{&#34;members&#34;:14,&#34;height&#34;:0.171148755956155,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;},&#34;children&#34;:[{&#34;members&#34;:9,&#34;height&#34;:0.107687341256125,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;},&#34;children&#34;:[{&#34;members&#34;:6,&#34;height&#34;:0.104307979544,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;},&#34;children&#34;:[{&#34;members&#34;:5,&#34;height&#34;:0.0831733037144093,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;},&#34;children&#34;:[{&#34;members&#34;:3,&#34;height&#34;:0.07241021487988,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;},&#34;children&#34;:[{&#34;members&#34;:2,&#34;height&#34;:0.0552295258157939,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;},&#34;children&#34;:[{&#34;members&#34;:1,&#34;height&#34;:0,&#34;label&#34;:&#34;13&#34;,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;}},{&#34;members&#34;:1,&#34;height&#34;:0,&#34;label&#34;:&#34;12&#34;,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;}}]},{&#34;members&#34;:1,&#34;height&#34;:0,&#34;label&#34;:&#34;10&#34;,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;}}]},{&#34;members&#34;:2,&#34;height&#34;:0.0606562595318447,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;},&#34;children&#34;:[{&#34;members&#34;:1,&#34;height&#34;:0,&#34;label&#34;:&#34;3&#34;,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;}},{&#34;members&#34;:1,&#34;height&#34;:0,&#34;label&#34;:&#34;2&#34;,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;}}]}]},{&#34;members&#34;:1,&#34;height&#34;:0,&#34;label&#34;:&#34;11&#34;,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;}}]},{&#34;members&#34;:3,&#34;height&#34;:0.0796848426427671,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;},&#34;children&#34;:[{&#34;members&#34;:2,&#34;height&#34;:0.0600102101941526,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;},&#34;children&#34;:[{&#34;members&#34;:1,&#34;height&#34;:0,&#34;label&#34;:&#34;14&#34;,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;}},{&#34;members&#34;:1,&#34;height&#34;:0,&#34;label&#34;:&#34;1&#34;,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;}}]},{&#34;members&#34;:1,&#34;height&#34;:0,&#34;label&#34;:&#34;7&#34;,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;}}]}]},{&#34;members&#34;:5,&#34;height&#34;:0.115310172394062,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;},&#34;children&#34;:[{&#34;members&#34;:4,&#34;height&#34;:0.0842231666815035,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;},&#34;children&#34;:[{&#34;members&#34;:3,&#34;height&#34;:0.0640803547852531,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;},&#34;children&#34;:[{&#34;members&#34;:2,&#34;height&#34;:0.0417104466857227,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;},&#34;children&#34;:[{&#34;members&#34;:1,&#34;height&#34;:0,&#34;label&#34;:&#34;6&#34;,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;}},{&#34;members&#34;:1,&#34;height&#34;:0,&#34;label&#34;:&#34;5&#34;,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;}}]},{&#34;members&#34;:1,&#34;height&#34;:0,&#34;label&#34;:&#34;4&#34;,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;}}]},{&#34;members&#34;:1,&#34;height&#34;:0,&#34;label&#34;:&#34;9&#34;,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;}}]},{&#34;members&#34;:1,&#34;height&#34;:0,&#34;label&#34;:&#34;8&#34;,&#34;edgePar&#34;:{&#34;col&#34;:&#34;&#34;}}]}]},&#34;cols&#34;:null,&#34;matrix&#34;:{&#34;data&#34;:[&#34;0.174&#34;,&#34;0.082&#34;,&#34;0.019&#34;,&#34;0&#34;,&#34;0.15&#34;,&#34;0.063&#34;,&#34;0.039&#34;,&#34;0&#34;,&#34;0.169&#34;,&#34;0.106&#34;,&#34;0.005&#34;,&#34;0&#34;,&#34;0.101&#34;,&#34;0.063&#34;,&#34;0.029&#34;,&#34;0&#34;,&#34;0.195&#34;,&#34;0.074&#34;,&#34;0.004&#34;,&#34;0&#34;,&#34;0.152&#34;,&#34;0.086&#34;,&#34;0.016&#34;,&#34;0&#34;,&#34;0.171&#34;,&#34;0.089&#34;,&#34;0.012&#34;,&#34;0.004&#34;,&#34;0.082&#34;,&#34;0.086&#34;,&#34;0.031&#34;,&#34;0&#34;,&#34;0.187&#34;,&#34;0.12&#34;,&#34;0.01&#34;,&#34;0&#34;,&#34;0.158&#34;,&#34;0.053&#34;,&#34;0.01&#34;,&#34;0&#34;,&#34;0.187&#34;,&#34;0.081&#34;,&#34;0&#34;,&#34;0.005&#34;,&#34;0.11&#34;,&#34;0.072&#34;,&#34;0.01&#34;,&#34;0&#34;,&#34;0.17&#34;,&#34;0.127&#34;,&#34;0.024&#34;,&#34;0.005&#34;,&#34;0.127&#34;,&#34;0.09&#34;,&#34;0.028&#34;,&#34;0&#34;,&#34;0.156&#34;,&#34;0.057&#34;,&#34;0.019&#34;,&#34;0&#34;,&#34;0.094&#34;,&#34;0.085&#34;,&#34;0.019&#34;,&#34;0&#34;,&#34;0.174&#34;,&#34;0.103&#34;,&#34;0.041&#34;,&#34;0.004&#34;,&#34;0.136&#34;,&#34;0.074&#34;,&#34;0.017&#34;,&#34;0.004&#34;,&#34;0.149&#34;,&#34;0.079&#34;,&#34;0.021&#34;,&#34;0&#34;,&#34;0.107&#34;,&#34;0.05&#34;,&#34;0.037&#34;,&#34;0.004&#34;,&#34;0.234&#34;,&#34;0.113&#34;,&#34;0.017&#34;,&#34;0&#34;,&#34;0.108&#34;,&#34;0.078&#34;,&#34;0.004&#34;,&#34;0&#34;,&#34;0.186&#34;,&#34;0.056&#34;,&#34;0.013&#34;,&#34;0&#34;,&#34;0.104&#34;,&#34;0.074&#34;,&#34;0.013&#34;,&#34;0&#34;,&#34;0.172&#34;,&#34;0.074&#34;,&#34;0.008&#34;,&#34;0&#34;,&#34;0.141&#34;,&#34;0.055&#34;,&#34;0.027&#34;,&#34;0.008&#34;,&#34;0.172&#34;,&#34;0.059&#34;,&#34;0.027&#34;,&#34;0&#34;,&#34;0.129&#34;,&#34;0.082&#34;,&#34;0.047&#34;,&#34;0&#34;,&#34;0.201&#34;,&#34;0.072&#34;,&#34;0.008&#34;,&#34;0&#34;,&#34;0.153&#34;,&#34;0.048&#34;,&#34;0.016&#34;,&#34;0&#34;,&#34;0.201&#34;,&#34;0.044&#34;,&#34;0.008&#34;,&#34;0&#34;,&#34;0.145&#34;,&#34;0.084&#34;,&#34;0.02&#34;,&#34;0&#34;,&#34;0.157&#34;,&#34;0.09&#34;,&#34;0.029&#34;,&#34;0&#34;,&#34;0.119&#34;,&#34;0.048&#34;,&#34;0.024&#34;,&#34;0&#34;,&#34;0.233&#34;,&#34;0.067&#34;,&#34;0.005&#34;,&#34;0&#34;,&#34;0.124&#34;,&#34;0.071&#34;,&#34;0.029&#34;,&#34;0.005&#34;,&#34;0.153&#34;,&#34;0.102&#34;,&#34;0.024&#34;,&#34;0&#34;,&#34;0.129&#34;,&#34;0.068&#34;,&#34;0.024&#34;,&#34;0.01&#34;,&#34;0.146&#34;,&#34;0.082&#34;,&#34;0.014&#34;,&#34;0.003&#34;,&#34;0.143&#34;,&#34;0.075&#34;,&#34;0.02&#34;,&#34;0.007&#34;,&#34;0.155&#34;,&#34;0.118&#34;,&#34;0.034&#34;,&#34;0&#34;,&#34;0.111&#34;,&#34;0.081&#34;,&#34;0.03&#34;,&#34;0.007&#34;,&#34;0.128&#34;,&#34;0.071&#34;,&#34;0.01&#34;,&#34;0.003&#34;,&#34;0.135&#34;,&#34;0.091&#34;,&#34;0.024&#34;,&#34;0&#34;,&#34;0.167&#34;,&#34;0.102&#34;,&#34;0.005&#34;,&#34;0.005&#34;,&#34;0.107&#34;,&#34;0.065&#34;,&#34;0.014&#34;,&#34;0.005&#34;,&#34;0.153&#34;,&#34;0.065&#34;,&#34;0.005&#34;,&#34;0&#34;,&#34;0.158&#34;,&#34;0.121&#34;,&#34;0.028&#34;,&#34;0&#34;,&#34;0.192&#34;,&#34;0.073&#34;,&#34;0.017&#34;,&#34;0.004&#34;,&#34;0.124&#34;,&#34;0.068&#34;,&#34;0.03&#34;,&#34;0.004&#34;,&#34;0.124&#34;,&#34;0.107&#34;,&#34;0.017&#34;,&#34;0.004&#34;,&#34;0.141&#34;,&#34;0.081&#34;,&#34;0.013&#34;,&#34;0&#34;,&#34;0.106&#34;,&#34;0.098&#34;,&#34;0.02&#34;,&#34;0.004&#34;,&#34;0.147&#34;,&#34;0.078&#34;,&#34;0.024&#34;,&#34;0&#34;,&#34;0.131&#34;,&#34;0.065&#34;,&#34;0.008&#34;,&#34;0&#34;,&#34;0.184&#34;,&#34;0.106&#34;,&#34;0.029&#34;,&#34;0&#34;],&#34;dim&#34;:[14,16],&#34;rows&#34;:[&#34;13&#34;,&#34;12&#34;,&#34;10&#34;,&#34;3&#34;,&#34;2&#34;,&#34;11&#34;,&#34;14&#34;,&#34;1&#34;,&#34;7&#34;,&#34;6&#34;,&#34;5&#34;,&#34;4&#34;,&#34;9&#34;,&#34;8&#34;],&#34;cols&#34;:[&#34;Q1- Down: 1&#34;,&#34;Q1- Down: 2&#34;,&#34;Q1- Down: 3&#34;,&#34;Q1- Down: 4&#34;,&#34;Q2- Down: 1&#34;,&#34;Q2- Down: 2&#34;,&#34;Q2- Down: 3&#34;,&#34;Q2- Down: 4&#34;,&#34;Q3- Down: 1&#34;,&#34;Q3- Down: 2&#34;,&#34;Q3- Down: 3&#34;,&#34;Q3- Down: 4&#34;,&#34;Q4- Down: 1&#34;,&#34;Q4- Down: 2&#34;,&#34;Q4- Down: 3&#34;,&#34;Q4- Down: 4&#34;]},&#34;image&#34;:&#34;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAQCAYAAAAmlE46AAACvUlEQVQokT2SW0iTYRzG3yhQCIOIzl0EhVFEdGV0ogNFF11FRETZRVTYAboQK4roooNRUVREhVFoMiEtKs3ZYWglOpnONTVtrpxu7eDm+rZv9n5fn36/Lra+y4f3//4Pz+8RS0obsXWFCCt/kQZsutVKy8AY38IZpAErzr7jYpMPVTORBpQ7/LQMjCF+xiXSgFkHqnntjZLRswUbb36h0jXCaNpAGrDstJ0KZ4Cx8QkyuomwdYWodI3gH/2DNGD+4VpKavv4/WcCaUDRlWZcP1OWnn+4lhp3CCENUDWTsw3faeiJWQXLzzRRXO0hmNRRNZPiag8VzgBDieyGYm15C06/QiSVvfFe6xBVnSOWXlrayOUPg/SGMqi6ya4KF6+8EUQs/RdVN9l8u5Xa7l/8UnSkARfsProCKfoj46i6Sf7qE5S+GSCaayjON36nzhNGzZmy4EgdTr9CIpM15dL7Qd54o5YuLLPz2htBKHISacDOBx10/FAIJDQUOUlhmZ22wd8EEhrSgP1V3di6QniG09mJBXueUt8T5X+DDTc+4x5OE8thKNjzFG9Qtd633WvnWWcQ8R/8mistPGoPMJTjWlLXR/dwmmAyOzF/9Uk+fItbQRCHarw09MQYiktUzWT99c9c/ei3Puyv6uZd3yjBpEZyfIKtd9uwuUOIeMYgo5vsuO/k1dcIYUUnJSdZW/6JYy/68EWzwSirH6DGHeLHqCQlJxEHnnl42xsjmYvS7sedPGwPEExmsaw8956rH/2omomqmVyw+3D0JxBx1bBWdPQnrBuKLjdz9HmvlZTZB23U90SJ5rhPOVTjZe+qeWLpnAIxZ0aeOPWyVyyamS+Or1sspudNE3ufuETxmoVie+FcMT1vmrjmGBQz8qcKEVZ0MrrJljtt1HnCjORM2VfpxtGfsDAsKnnJxSaf5fo/76nZG/Pe0FoAAAAASUVORK5CYII=&#34;,&#34;theme&#34;:null,&#34;options&#34;:{&#34;xaxis_height&#34;:80,&#34;yaxis_width&#34;:120,&#34;xaxis_font_size&#34;:null,&#34;yaxis_font_size&#34;:null,&#34;brush_color&#34;:&#34;#0000FF&#34;,&#34;show_grid&#34;:3,&#34;anim_duration&#34;:500}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}{&#34;viewer&#34;:{&#34;width&#34;:450,&#34;height&#34;:350,&#34;padding&#34;:15,&#34;fill&#34;:true},&#34;browser&#34;:{&#34;width&#34;:960,&#34;height&#34;:500,&#34;padding&#34;:40,&#34;fill&#34;:true}}</description>
+    </item>
+    
+  </channel>
+</rss>
