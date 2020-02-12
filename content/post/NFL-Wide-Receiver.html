@@ -1,0 +1,322 @@
+---
+title: NFL Wide Receiver Analysis
+author: Jose Alfaro
+date: '2020-01-23'
+slug: NFL-Wide-Receiver
+categories:
+  - Sports
+tags:
+  - blog
+  - sports
+  - NFL
+thumbnailImage: //d1u9biwaxjngwg.cloudfront.net/cover-image-showcase/city-750.jpg
+thumbnailImagePosition: left
+  
+---
+
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+
+
+<p>This post is a continuation of our Running Back analysis post. Here we will take a closer look into some <!--more--></p>
+<p>The NFL is a gold mine for interesting statistics such as the average number of passing yards per quarterback, the average number of yards gained by running back, and the number of receiving yards per top receivers. In this post we conduct some exploratory analysis on the top running backs in the NFL to determine what makes these running backs excel.</p>
+<p>In order to get a subset of running backs that actively play in the NFL, we decided to select a subset of players that had at least 200 carries during the 2018 season.</p>
+<pre class="r"><code>setwd(&quot;C:/Users/JFA170001/Documents/Blog/best-blog/best-blog-ever&quot;)
+## Loading In Data
+dta &lt;- readRDS(&quot;NFL2018.rds&quot;)
+
+min_rec_cnt &lt;- 134
+rec_cnt &lt;- dta %&gt;% filter(PlayType == &#39;Pass&#39;) %&gt;%
+  group_by(Receiver) %&gt;% 
+  summarise(rec_cnt = n(),
+            total_yards = sum(Yards.Gained),
+            mean_yards = round(mean(Yards.Gained), 2)) %&gt;%
+  filter(rec_cnt &gt;= min_rec_cnt) %&gt;%
+  arrange(desc(rec_cnt))
+
+rec_cnt &lt;- rec_cnt[-1,]
+
+rec_tab &lt;- rec_cnt
+colnames(rec_tab) &lt;- c(&quot;Receiver&quot;, &quot;Passes&quot;, &quot;Total Yards&quot;, &quot;Mean Yards&quot;)
+
+kable(rec_tab, booktabs = T,
+      caption = &quot;Top Quarterbacks in 2018&quot;) %&gt;%
+  kable_styling(position = &quot;center&quot;, latex_options = &quot;hold position&quot;)</code></pre>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-2">Table 1: </span>Top Quarterbacks in 2018
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Receiver
+</th>
+<th style="text-align:right;">
+Passes
+</th>
+<th style="text-align:right;">
+Total Yards
+</th>
+<th style="text-align:right;">
+Mean Yards
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+D.Adams
+</td>
+<td style="text-align:right;">
+170
+</td>
+<td style="text-align:right;">
+1433
+</td>
+<td style="text-align:right;">
+8.43
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+J.Jones
+</td>
+<td style="text-align:right;">
+168
+</td>
+<td style="text-align:right;">
+1686
+</td>
+<td style="text-align:right;">
+10.04
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+J.Smith-Schuster
+</td>
+<td style="text-align:right;">
+163
+</td>
+<td style="text-align:right;">
+1368
+</td>
+<td style="text-align:right;">
+8.39
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+D.Hopkins
+</td>
+<td style="text-align:right;">
+160
+</td>
+<td style="text-align:right;">
+1580
+</td>
+<td style="text-align:right;">
+9.88
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+A.Brown
+</td>
+<td style="text-align:right;">
+158
+</td>
+<td style="text-align:right;">
+1335
+</td>
+<td style="text-align:right;">
+8.45
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+A.Thielen
+</td>
+<td style="text-align:right;">
+152
+</td>
+<td style="text-align:right;">
+1373
+</td>
+<td style="text-align:right;">
+9.03
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Z.Ertz
+</td>
+<td style="text-align:right;">
+151
+</td>
+<td style="text-align:right;">
+1158
+</td>
+<td style="text-align:right;">
+7.67
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+J.Landry
+</td>
+<td style="text-align:right;">
+148
+</td>
+<td style="text-align:right;">
+978
+</td>
+<td style="text-align:right;">
+6.61
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+S.Diggs
+</td>
+<td style="text-align:right;">
+148
+</td>
+<td style="text-align:right;">
+1021
+</td>
+<td style="text-align:right;">
+6.90
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+T.Kelce
+</td>
+<td style="text-align:right;">
+148
+</td>
+<td style="text-align:right;">
+1360
+</td>
+<td style="text-align:right;">
+9.19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+M.Thomas
+</td>
+<td style="text-align:right;">
+147
+</td>
+<td style="text-align:right;">
+1404
+</td>
+<td style="text-align:right;">
+9.55
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+T.Hill
+</td>
+<td style="text-align:right;">
+137
+</td>
+<td style="text-align:right;">
+1470
+</td>
+<td style="text-align:right;">
+10.73
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+D.Johnson
+</td>
+<td style="text-align:right;">
+135
+</td>
+<td style="text-align:right;">
+897
+</td>
+<td style="text-align:right;">
+6.64
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+G.Kittle
+</td>
+<td style="text-align:right;">
+135
+</td>
+<td style="text-align:right;">
+1376
+</td>
+<td style="text-align:right;">
+10.19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+K.Allen
+</td>
+<td style="text-align:right;">
+134
+</td>
+<td style="text-align:right;">
+1197
+</td>
+<td style="text-align:right;">
+8.93
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code># Get all rushing data for eligible players
+
+rec_stats &lt;- dta %&gt;%
+  filter(PlayType == &#39;Pass&#39; &amp; Receiver %in% rec_cnt$Receiver &amp; Yards.Gained &lt;= 50) %&gt;%
+  filter(down!=4 &amp; !is.na(down))
+
+
+# Compare distribution of rushes for eligible players
+
+ggplot(rec_stats, aes(x = Yards.Gained, y = Receiver, fill=Receiver)) +
+  geom_joy(scale = 3) +
+  theme_joy() +
+  scale_fill_manual(values=rep(c(&#39;gray&#39;, &#39;lightblue&#39;), length(rec_stats$Receiver)/2)) +
+  scale_y_discrete(expand = c(0.01, 0)) +
+  scale_x_continuous(expand = c(0, 0)) +
+  theme(legend.position=&quot;none&quot;) +
+  labs(x=&quot;Yards Gained Per Play&quot; ,y=&quot;&quot;) + ggtitle(&quot;Receiver Distribution&quot;)</code></pre>
+<p><img src="/post/NFL-Wide-Receiver_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(rec_stats, aes(x = Yards.Gained, y = down)) +
+  geom_joy(scale=1, rel_min_height=.03, fill=&#39;black&#39;) +
+  scale_y_discrete(expand = c(0.01, 0)) +
+  xlab(&#39;Value&#39;) +
+  facet_wrap(~Receiver, scales=&#39;free&#39;, ncol=3) +
+  theme_joy() +
+  theme(axis.title.y = element_blank())+
+  labs(x=&quot;Yards Gained Per Play&quot; ,y=&quot;Down&quot;) +
+  coord_cartesian(xlim = c(-20, 60))</code></pre>
+<p><img src="/post/NFL-Wide-Receiver_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(data=rec_stats, aes(x=PassLocation, y=Yards.Gained, color=PassLocation)) +
+  geom_jitter(position=position_jitter(0.2)) +
+  stat_summary(fun.data=mean_sdl, mult=1, 
+               geom=&quot;pointrange&quot;, color=&quot;black&quot;) +
+  scale_color_brewer(palette=&quot;Dark2&quot;) + theme_minimal() +
+  facet_wrap(~Receiver)</code></pre>
+<p><img src="/post/NFL-Wide-Receiver_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<pre class="r"><code>rec_locations &lt;- rec_stats %&gt;% filter(PlayType==&#39;Pass&#39;) %&gt;%
+  filter(!is.na(PassLocation)) %&gt;%
+  group_by(Receiver, PassLocation) %&gt;%
+  summarise(rec_cnt = n()) %&gt;%
+  mutate(freq = rec_cnt / sum(rec_cnt))
+
+loc_mat &lt;- rec_locations %&gt;% dcast(Receiver ~ PassLocation, value.var = &quot;freq&quot;)
+row.names(loc_mat) &lt;- loc_mat$Receiver
+loc_mat &lt;- loc_mat %&gt;% select(-Receiver)</code></pre>
+<pre class="r"><code>pheatmap(loc_mat, border=&quot;white&quot;, color = brewer.pal(9,&quot;Blues&quot;), cluster_cols=FALSE)</code></pre>
+<p><img src="/post/NFL-Wide-Receiver_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>

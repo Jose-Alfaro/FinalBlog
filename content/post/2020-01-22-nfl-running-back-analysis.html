@@ -1,0 +1,339 @@
+---
+autoThumbnailImage: false
+title: NFL Running Back Analysis
+author: Jose Alfaro
+date: '2020-01-22'
+slug: nfl-running-back-analysis
+categories:
+  - R
+  - Sports
+tags:
+  - blog
+  - R
+  - NFL
+  - Exploration
+  - plot
+keywords:
+  - tech
+coverImage: /img/posts/RB.jpg
+thumbnailImage: /img/posts/RB-Thumb.png
+thumbnailImagePosition: left
+metaAlignment: center
+draft: false
+
+---
+
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+
+
+<p>The NFL is a gold mine for interesting statistics such as the average number of passing yards per quarterback, the average number of yards gained by running back, and the number of receiving yards per top receivers. In this post we conduct some exploratory analysis on the top running backs in the NFL to determine what made these running backs so successful in 2018. <!--more--></p>
+<p>The NFL is a gold mine for interesting statistics such as the average number of passing yards per quarterback, the average number of yards gained by running back, and the number of receiving yards per top receivers. In this post we conduct some exploratory analysis on the top running backs in the NFL to determine what makes these running backs excel.</p>
+<p>In order to get a subset of running backs that actively play in the NFL, we decided to select a subset of players that had at least 200 carries during the 2018 season.</p>
+<pre class="r"><code>setwd(&quot;C:/Users/JFA170001/Documents/Blog/best-blog/best-blog-ever&quot;)
+## Loading In Data
+dta &lt;- readRDS(&quot;NFL2018.rds&quot;)
+## Filtering Running Backs That Have At Least 200 Carries
+min_rush_cnt &lt;- 200
+rush_cnt &lt;- dta %&gt;% filter(PlayType == &#39;Run&#39;) %&gt;%
+  group_by(Rusher) %&gt;% 
+  summarise(rush_cnt = n(),
+            total_yards = sum(Yards.Gained),
+            mean_yards = round(mean(Yards.Gained), 2)) %&gt;%
+  filter(rush_cnt &gt;= min_rush_cnt) %&gt;%
+  arrange(desc(rush_cnt))
+
+rush_tab &lt;- rush_cnt
+colnames(rush_tab) &lt;- c(&quot;Running Back&quot;, &quot;Carries&quot;, &quot;Total Yards&quot;, &quot;Mean Yards&quot;)
+
+kable(rush_tab, booktabs = T,
+      caption = &quot;Top Running Backs in 2018&quot;) %&gt;%
+  kable_styling(position = &quot;center&quot;, latex_options = &quot;hold position&quot;)</code></pre>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-2">Table 1: </span>Top Running Backs in 2018
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Running Back
+</th>
+<th style="text-align:right;">
+Carries
+</th>
+<th style="text-align:right;">
+Total Yards
+</th>
+<th style="text-align:right;">
+Mean Yards
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+E.Elliott
+</td>
+<td style="text-align:right;">
+304
+</td>
+<td style="text-align:right;">
+1435
+</td>
+<td style="text-align:right;">
+4.72
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+D.Johnson
+</td>
+<td style="text-align:right;">
+301
+</td>
+<td style="text-align:right;">
+1164
+</td>
+<td style="text-align:right;">
+3.87
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+S.Barkley
+</td>
+<td style="text-align:right;">
+263
+</td>
+<td style="text-align:right;">
+1326
+</td>
+<td style="text-align:right;">
+5.04
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+T.Gurley
+</td>
+<td style="text-align:right;">
+259
+</td>
+<td style="text-align:right;">
+1251
+</td>
+<td style="text-align:right;">
+4.83
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+A.Peterson
+</td>
+<td style="text-align:right;">
+249
+</td>
+<td style="text-align:right;">
+1037
+</td>
+<td style="text-align:right;">
+4.16
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+J.Howard
+</td>
+<td style="text-align:right;">
+249
+</td>
+<td style="text-align:right;">
+946
+</td>
+<td style="text-align:right;">
+3.80
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+C.Carson
+</td>
+<td style="text-align:right;">
+243
+</td>
+<td style="text-align:right;">
+1230
+</td>
+<td style="text-align:right;">
+5.06
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+J.Mixon
+</td>
+<td style="text-align:right;">
+234
+</td>
+<td style="text-align:right;">
+1150
+</td>
+<td style="text-align:right;">
+4.91
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+P.Barber
+</td>
+<td style="text-align:right;">
+231
+</td>
+<td style="text-align:right;">
+883
+</td>
+<td style="text-align:right;">
+3.82
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+D.Henry
+</td>
+<td style="text-align:right;">
+216
+</td>
+<td style="text-align:right;">
+1130
+</td>
+<td style="text-align:right;">
+5.23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+J.Conner
+</td>
+<td style="text-align:right;">
+214
+</td>
+<td style="text-align:right;">
+926
+</td>
+<td style="text-align:right;">
+4.33
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+C.McCaffrey
+</td>
+<td style="text-align:right;">
+211
+</td>
+<td style="text-align:right;">
+1033
+</td>
+<td style="text-align:right;">
+4.90
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+L.Miller
+</td>
+<td style="text-align:right;">
+209
+</td>
+<td style="text-align:right;">
+974
+</td>
+<td style="text-align:right;">
+4.66
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+S.Michel
+</td>
+<td style="text-align:right;">
+207
+</td>
+<td style="text-align:right;">
+961
+</td>
+<td style="text-align:right;">
+4.64
+</td>
+</tr>
+</tbody>
+</table>
+<p>Here we see that Ezekiel Elliott had the most carries in 2018 among all of the running backs in the NFL. We also see that Elliott led the league in total yards gained as well. However, when looking at the mean yards per play, we see that Derrick Henry had the highest average at 5.23 yards per carry.</p>
+<pre class="r"><code># Get all rushing data for eligible players
+
+rushing_stats &lt;- dta %&gt;%
+  filter(PlayType == &#39;Run&#39; &amp; Rusher %in% rush_cnt$Rusher &amp; Yards.Gained &lt;=50) %&gt;%
+  filter(down!=4 &amp; !is.na(down)) %&gt;%
+  filter(!is.na(RunLocation))
+
+
+# Compare distribution of rushes for eligible players
+
+ggplot(rushing_stats, aes(x = Yards.Gained, y = Rusher, fill = Rusher)) +
+  geom_joy(scale = 3) +
+  theme_joy() +
+  scale_fill_manual(values = rep(c(&#39;gray&#39;, &#39;lightblue&#39;), length(rushing_stats$Rusher)/2)) +
+  scale_y_discrete(expand = c(0.01, 0)) +
+  scale_x_continuous(expand = c(0, 0)) +
+  theme(legend.position=&quot;none&quot;) +
+  labs(x = &quot;Yards Gained Per Play&quot; ,y = &quot;Running Back&quot;) + 
+  ggtitle(&quot;Yards By Running Back&quot;)</code></pre>
+<p><img src="/post/2020-01-22-nfl-running-back-analysis_files/figure-html/unnamed-chunk-3-1.png" width="672" /> Although the table above gave us a good idea as to who the top running backs in the league are, it wasn’t very descriptive in telling us HOW good they are. In the distibution plot above we have the same 14 running backs as before, but now we have the distributions created by the yards per play. Note that some of the distributions above go below zero. This simply means that the running back was stopped behind the line of scrimmage (in other words they lost yards).<br />
+Looking at the distributions above, we see that some running backs such as Todd Gurley, Ezekiell Elliott, and Chris Carson have heavy right tails which means that these running backs tend to have some runs where they run +20 yards in a single carry. Morever, when observing the peaks of these distributions, we see that overall these 14 running backs have about the same average of yards per carries (this can also be seen in the table above).</p>
+<pre class="r"><code>ggplot(data = rushing_stats, aes(x = RunLocation, y = Yards.Gained, color = RunLocation)) +
+  geom_jitter(position = position_jitter(0.2)) +
+  stat_summary(fun.data = mean_sdl, mult = 1, 
+               geom = &quot;pointrange&quot;, color = &quot;black&quot;) +
+  scale_color_brewer(palette = &quot;Dark2&quot;) + theme_minimal() +
+  facet_wrap(~Rusher)+
+  labs(x = &quot;Run Location&quot;, y = &quot;Yards Gained&quot;) +
+  ggtitle(&quot;Yards Gained by Runningback (By Location)&quot;)</code></pre>
+<p><img src="/post/2020-01-22-nfl-running-back-analysis_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>The above scatterplots depict the run locations that the running backs tend to take as well as the yards gained per location. What’s interesting here is that runningbacks with higher average yards per carry, such as Saquon Barkley, Chris Carson, and Derrick Henry, tend to share</p>
+<pre class="r"><code>rush_locations &lt;- rushing_stats %&gt;% filter(PlayType==&#39;Run&#39;) %&gt;%
+  filter(!is.na(RunLocation)) %&gt;%
+  group_by(Rusher, RunLocation) %&gt;%
+  summarise(rush_cnt = n()) %&gt;%
+  mutate(freq = rush_cnt / sum(rush_cnt))
+
+loc_mat &lt;- rush_locations %&gt;% dcast(Rusher ~ RunLocation, value.var = &quot;freq&quot;)
+row.names(loc_mat) &lt;- loc_mat$Rusher
+loc_mat &lt;- loc_mat %&gt;% select(-Rusher)
+
+
+# Plot heatmap of proportions of rushes by different field locations
+
+pheatmap(loc_mat, border=&quot;white&quot;, color = brewer.pal(9,&quot;Blues&quot;), cluster_cols=FALSE)</code></pre>
+<p><img src="/post/2020-01-22-nfl-running-back-analysis_files/figure-html/unnamed-chunk-5-1.png" width="672" /> The heat map above divides the field into three sections: left, middle, and right. These areas are highlighted from light blue to dark blue depending on how frequent the running backs take these routes.<br />
+Looking at the heat map, we see that David Johnson stands out from the rest of the running backs as he is the only one that prefers to run down the middle of the fields as opposed to the outer edges. In fact, it looks as though about half of his carries in 2018 were driven down the middle. This is interesting because he had the third lowest average yards per carry among the selected running backs (averaging 3.87 yds/carry). This could be due to the fact that runs taken down the middle are more likely to be stopped at the line of scrimmage or taken for negative yards than runs taken out the left or right side of the field.</p>
+<pre class="r"><code>ggplot(data=rushing_stats %&gt;% filter(!is.na(RunGap)), aes(x=RunGap, y=Yards.Gained, color=RunGap)) +
+  geom_jitter(position=position_jitter(0.2)) +
+  stat_summary(fun.data=mean_sdl, mult=1, 
+               geom=&quot;pointrange&quot;, color=&quot;black&quot;) +
+  scale_color_brewer(palette=&quot;Dark2&quot;) + theme_minimal() +
+  facet_wrap(~Rusher)</code></pre>
+<p><img src="/post/2020-01-22-nfl-running-back-analysis_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code># Get proportions of gaps created by different offensive line positions
+
+rush_gaps &lt;- rushing_stats %&gt;% filter(!is.na(RunGap)) %&gt;%
+  filter(!is.na(RunGap)) %&gt;%
+  group_by(Rusher, RunGap) %&gt;%
+  summarise(rush_cnt = n()) %&gt;%
+  mutate(freq = rush_cnt / sum(rush_cnt))
+
+gap_mat &lt;- rush_gaps %&gt;% dcast(Rusher ~ RunGap, value.var = &quot;freq&quot;)
+row.names(gap_mat) &lt;- gap_mat$Rusher
+gap_mat &lt;- gap_mat %&gt;% select(-Rusher)
+# Plot heatmap of proportions of rushes by different field gaps
+
+pheatmap(gap_mat, border=&quot;white&quot;, color = brewer.pal(9,&quot;Blues&quot;), cluster_cols=FALSE)</code></pre>
+<p><img src="/post/2020-01-22-nfl-running-back-analysis_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>

@@ -1,0 +1,181 @@
+---
+title: NFL Quarterback Analysis
+author: Jose Alfaro
+date: '2020-01-23'
+slug: NFL-Quarterback
+categories:
+  - Sports
+tags:
+  - blog
+  - sports
+  - NFL
+thumbnailImage: //d1u9biwaxjngwg.cloudfront.net/cover-image-showcase/city-750.jpg
+thumbnailImagePosition: bottom
+---
+This post is a continuation of our Running Back analysis post. Here we will take a closer look into some 
+<!--more-->
+
+The NFL is a gold mine for interesting statistics such as the average number of passing yards per quarterback, the average number of yards gained by running back, and the number of receiving yards per top receivers. In this post we conduct some exploratory analysis on the top running backs in the NFL to determine what makes these running backs excel.  
+
+In order to get a subset of running backs that actively play in the NFL, we decided to select a subset of players that had at least 200 carries during the 2018 season. 
+
+```{R message=FALSE, warning=FALSE, include=FALSE}
+library(devtools)
+library(nflscrapR)
+library(tidyverse)
+library(teamcolors)
+library(ggplot2)
+library(ggjoy)
+library(dplyr)
+library(ggridges)
+library(pheatmap)
+library(d3heatmap)
+library(maditr)
+library(htmlwidgets)
+library(RColorBrewer)
+library(tidyverse)
+library(gridExtra)
+library(knitr)
+library(kableExtra)
+```
+
+```{R echo=TRUE, message=FALSE, warning=FALSE}
+setwd("C:/Users/JFA170001/Documents/Blog/best-blog/best-blog-ever")
+## Loading In Data
+dta <- readRDS("NFL2018.rds")
+## Filtering Quarterbacks That Have At Least 400 Passes
+min_rush_cnt <- 491
+qb_cnt <- dta %>% filter(PlayType == 'Pass') %>%
+  group_by(Passer) %>%
+  summarise(
+    qb_cnt = n(),
+    total_yards = sum(Yards.Gained),
+    mean_yards = round(mean(Yards.Gained), 2)
+  ) %>%
+  filter(qb_cnt >= min_rush_cnt) %>%
+  arrange(desc(qb_cnt))
+qb_tab <- qb_cnt
+colnames(qb_tab) <- c("Quarterback", "Passes", "Total Yards", "Mean Yards")
+
+kable(qb_tab, booktabs = T,
+      caption = "Top Quarterbacks in 2018") %>%
+  kable_styling(position = "center", latex_options = "hold position")
+```
+
+
+
+```{R message=FALSE, warning=FALSE}
+# Get all rushing data for eligible players
+
+qb_stats <- dta %>%
+  filter(PlayType == 'Pass' & Passer %in% qb_cnt$Passer & Yards.Gained <= 50) %>%
+  filter(down != 4 & !is.na(down)) %>%
+  filter(!is.na(PassLocation))
+
+
+# Compare distribution of rushes for eligible players
+
+ggplot(qb_stats, aes(x = Yards.Gained, y = Passer, fill = Passer)) +
+  geom_joy(scale = 3) +
+  theme_joy() +
+  scale_fill_manual(values = rep(c('gray', 'lightblue'), length(qb_stats$Passer) / 2)) +
+  scale_y_discrete(expand = c(0.01, 0)) +
+  scale_x_continuous(expand = c(0, 0)) +
+  theme(legend.position = "none") +
+  labs(x = "Yards Gained Per Play" , y = "Quarterback") +
+  ggtitle("Yards Gained By Quarterback")
+
+```
+ 
+
+```{R message=FALSE, warning=FALSE}
+usage_stats <- dta %>% filter(!is.na(down) & Passer %in% qb_cnt$Passer & qtr!=5) %>%
+  group_by(Passer, down, qtr) %>%
+  summarise(cnt = n()) %>%
+  mutate(qtr_down = paste("Q", qtr, "- Down: ", down, sep=""))
+
+
+# pivot dataframe
+
+usage <- usage_stats %>% dcast(Passer ~ qtr_down, value.var = "cnt")
+
+# clean data
+
+row.names(usage) <- usage$Passer
+usage <- usage %>% select(-Passer)
+usage[is.na(usage)] <- 0
+
+# normalize data
+
+usage_norm <- t(apply(usage, 1, function(x) x/sum(x)))
+
+# Plot heatmap of proportions of rushes by different field locations and gaps
+
+p <- d3heatmap(usage_norm,
+               colors="Blues",
+               Colv=FALSE,
+               show_grid=3)
+
+saveWidget(p, file="passer_usage_down_quarter.html")
+
+
+# Compare distribution of rushes by downs
+
+ggplot(qb_stats, aes(x = Yards.Gained, y = down)) +
+  geom_joy(scale = 1,
+           rel_min_height = .03,
+           fill = 'black') +
+  scale_y_discrete(expand = c(0.01, 0)) +
+  xlab('Value') +
+  facet_wrap( ~ Passer, scales = 'free', ncol = 3) +
+  theme_joy() +
+  theme(axis.title.y = element_blank()) +
+  labs(x = "Yards gained per play" , y = "Down") +
+  coord_cartesian(xlim = c(-5, 60))
+```
+
+
+```{R message=FALSE, warning=FALSE}
+ggplot(data = qb_stats, aes(x = PassLocation, y = Yards.Gained, color = PassLocation)) +
+  geom_jitter(position = position_jitter(0.2)) +
+  stat_summary(
+    fun.data = mean_sdl,
+    mult = 1,
+    geom = "pointrange",
+    color = "black"
+  ) +
+  scale_color_brewer(palette = "Dark2") + theme_minimal() +
+  facet_wrap( ~ Passer)
+
+```
+
+
+```{R message=FALSE, warning=FALSE}
+# Get proportions of rushes on different field locations
+
+qb_locations <- qb_stats %>% filter(PlayType=='Pass') %>%
+  filter(!is.na(PassLocation)) %>%
+  group_by(Passer, PassLocation) %>%
+  summarise(qb_cnt = n()) %>%
+  mutate(freq = qb_cnt / sum(qb_cnt))
+
+loc_mat <- qb_locations %>% dcast(Passer ~ PassLocation, value.var = "freq")
+row.names(loc_mat) <- loc_mat$Passer
+loc_mat <- loc_mat %>% select(-Passer)
+
+
+# Plot heatmap of proportions of rushes by different field locations
+
+pheatmap(loc_mat, border="white", color = brewer.pal(9,"Blues"), cluster_cols=FALSE)
+```
+
+```{R message=FALSE, warning=FALSE}
+
+ggplot(data=qb_stats %>% filter(!is.na(down)), aes(x=down, y=Yards.Gained, color=down)) +
+  geom_jitter(position=position_jitter(0.2)) +
+  stat_summary(fun.data=mean_sdl, mult=1, 
+               geom="pointrange", color="black") +
+  scale_color_brewer(palette="Dark2") + theme_minimal() +
+  facet_wrap(~Passer)
+
+```

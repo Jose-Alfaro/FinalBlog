@@ -1,0 +1,129 @@
+---
+title: NFL Wide Receiver Analysis
+author: Jose Alfaro
+date: '2020-01-23'
+slug: NFL-Wide-Receiver
+categories:
+  - Sports
+tags:
+  - blog
+  - sports
+  - NFL
+thumbnailImage: //d1u9biwaxjngwg.cloudfront.net/cover-image-showcase/city-750.jpg
+thumbnailImagePosition: left
+  
+---
+This post is a continuation of our Running Back analysis post. Here we will take a closer look into some 
+<!--more-->
+
+The NFL is a gold mine for interesting statistics such as the average number of passing yards per quarterback, the average number of yards gained by running back, and the number of receiving yards per top receivers. In this post we conduct some exploratory analysis on the top running backs in the NFL to determine what makes these running backs excel.  
+
+In order to get a subset of running backs that actively play in the NFL, we decided to select a subset of players that had at least 200 carries during the 2018 season. 
+
+```{R message=FALSE, warning=FALSE, include=FALSE}
+library(devtools)
+library(nflscrapR)
+library(tidyverse)
+library(teamcolors)
+library(ggplot2)
+library(ggjoy)
+library(dplyr)
+library(ggridges)
+library(pheatmap)
+library(d3heatmap)
+library(maditr)
+library(htmlwidgets)
+library(RColorBrewer)
+library(tidyverse)
+library(gridExtra)
+library(knitr)
+library(kableExtra)
+```
+
+```{R echo=TRUE, message=FALSE, warning=FALSE}
+setwd("C:/Users/JFA170001/Documents/Blog/best-blog/best-blog-ever")
+## Loading In Data
+dta <- readRDS("NFL2018.rds")
+
+min_rec_cnt <- 134
+rec_cnt <- dta %>% filter(PlayType == 'Pass') %>%
+  group_by(Receiver) %>% 
+  summarise(rec_cnt = n(),
+            total_yards = sum(Yards.Gained),
+            mean_yards = round(mean(Yards.Gained), 2)) %>%
+  filter(rec_cnt >= min_rec_cnt) %>%
+  arrange(desc(rec_cnt))
+
+rec_cnt <- rec_cnt[-1,]
+
+rec_tab <- rec_cnt
+colnames(rec_tab) <- c("Receiver", "Passes", "Total Yards", "Mean Yards")
+
+kable(rec_tab, booktabs = T,
+      caption = "Top Quarterbacks in 2018") %>%
+  kable_styling(position = "center", latex_options = "hold position")
+```
+
+
+
+```{R message=FALSE, warning=FALSE}
+# Get all rushing data for eligible players
+
+rec_stats <- dta %>%
+  filter(PlayType == 'Pass' & Receiver %in% rec_cnt$Receiver & Yards.Gained <= 50) %>%
+  filter(down!=4 & !is.na(down))
+
+
+# Compare distribution of rushes for eligible players
+
+ggplot(rec_stats, aes(x = Yards.Gained, y = Receiver, fill=Receiver)) +
+  geom_joy(scale = 3) +
+  theme_joy() +
+  scale_fill_manual(values=rep(c('gray', 'lightblue'), length(rec_stats$Receiver)/2)) +
+  scale_y_discrete(expand = c(0.01, 0)) +
+  scale_x_continuous(expand = c(0, 0)) +
+  theme(legend.position="none") +
+  labs(x="Yards Gained Per Play" ,y="") + ggtitle("Receiver Distribution")
+```
+ 
+
+```{R message=FALSE, warning=FALSE}
+
+ggplot(rec_stats, aes(x = Yards.Gained, y = down)) +
+  geom_joy(scale=1, rel_min_height=.03, fill='black') +
+  scale_y_discrete(expand = c(0.01, 0)) +
+  xlab('Value') +
+  facet_wrap(~Receiver, scales='free', ncol=3) +
+  theme_joy() +
+  theme(axis.title.y = element_blank())+
+  labs(x="Yards Gained Per Play" ,y="Down") +
+  coord_cartesian(xlim = c(-20, 60))
+```
+
+
+```{R message=FALSE, warning=FALSE}
+ggplot(data=rec_stats, aes(x=PassLocation, y=Yards.Gained, color=PassLocation)) +
+  geom_jitter(position=position_jitter(0.2)) +
+  stat_summary(fun.data=mean_sdl, mult=1, 
+               geom="pointrange", color="black") +
+  scale_color_brewer(palette="Dark2") + theme_minimal() +
+  facet_wrap(~Receiver)
+```
+
+
+```{R message=FALSE, warning=FALSE}
+rec_locations <- rec_stats %>% filter(PlayType=='Pass') %>%
+  filter(!is.na(PassLocation)) %>%
+  group_by(Receiver, PassLocation) %>%
+  summarise(rec_cnt = n()) %>%
+  mutate(freq = rec_cnt / sum(rec_cnt))
+
+loc_mat <- rec_locations %>% dcast(Receiver ~ PassLocation, value.var = "freq")
+row.names(loc_mat) <- loc_mat$Receiver
+loc_mat <- loc_mat %>% select(-Receiver)
+
+```
+
+```{R message=FALSE, warning=FALSE}
+pheatmap(loc_mat, border="white", color = brewer.pal(9,"Blues"), cluster_cols=FALSE)
+```

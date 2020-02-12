@@ -1,0 +1,373 @@
+---
+title: NFL Quarterback Analysis
+author: Jose Alfaro
+date: '2020-01-23'
+slug: NFL-Quarterback
+categories:
+  - Sports
+tags:
+  - blog
+  - sports
+  - NFL
+thumbnailImage: //d1u9biwaxjngwg.cloudfront.net/cover-image-showcase/city-750.jpg
+thumbnailImagePosition: bottom
+---
+
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+
+
+<p>This post is a continuation of our Running Back analysis post. Here we will take a closer look into some <!--more--></p>
+<p>The NFL is a gold mine for interesting statistics such as the average number of passing yards per quarterback, the average number of yards gained by running back, and the number of receiving yards per top receivers. In this post we conduct some exploratory analysis on the top running backs in the NFL to determine what makes these running backs excel.</p>
+<p>In order to get a subset of running backs that actively play in the NFL, we decided to select a subset of players that had at least 200 carries during the 2018 season.</p>
+<pre class="r"><code>setwd(&quot;C:/Users/JFA170001/Documents/Blog/best-blog/best-blog-ever&quot;)
+## Loading In Data
+dta &lt;- readRDS(&quot;NFL2018.rds&quot;)
+## Filtering Quarterbacks That Have At Least 400 Passes
+min_rush_cnt &lt;- 491
+qb_cnt &lt;- dta %&gt;% filter(PlayType == &#39;Pass&#39;) %&gt;%
+  group_by(Passer) %&gt;%
+  summarise(
+    qb_cnt = n(),
+    total_yards = sum(Yards.Gained),
+    mean_yards = round(mean(Yards.Gained), 2)
+  ) %&gt;%
+  filter(qb_cnt &gt;= min_rush_cnt) %&gt;%
+  arrange(desc(qb_cnt))
+qb_tab &lt;- qb_cnt
+colnames(qb_tab) &lt;- c(&quot;Quarterback&quot;, &quot;Passes&quot;, &quot;Total Yards&quot;, &quot;Mean Yards&quot;)
+
+kable(qb_tab, booktabs = T,
+      caption = &quot;Top Quarterbacks in 2018&quot;) %&gt;%
+  kable_styling(position = &quot;center&quot;, latex_options = &quot;hold position&quot;)</code></pre>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-2">Table 1: </span>Top Quarterbacks in 2018
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Quarterback
+</th>
+<th style="text-align:right;">
+Passes
+</th>
+<th style="text-align:right;">
+Total Yards
+</th>
+<th style="text-align:right;">
+Mean Yards
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+B.Roethlisberger
+</td>
+<td style="text-align:right;">
+677
+</td>
+<td style="text-align:right;">
+5086
+</td>
+<td style="text-align:right;">
+7.51
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+A.Luck
+</td>
+<td style="text-align:right;">
+640
+</td>
+<td style="text-align:right;">
+4610
+</td>
+<td style="text-align:right;">
+7.20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+M.Ryan
+</td>
+<td style="text-align:right;">
+612
+</td>
+<td style="text-align:right;">
+4934
+</td>
+<td style="text-align:right;">
+8.06
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+K.Cousins
+</td>
+<td style="text-align:right;">
+608
+</td>
+<td style="text-align:right;">
+4314
+</td>
+<td style="text-align:right;">
+7.10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+A.Rodgers
+</td>
+<td style="text-align:right;">
+598
+</td>
+<td style="text-align:right;">
+4495
+</td>
+<td style="text-align:right;">
+7.52
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+C.Keenum
+</td>
+<td style="text-align:right;">
+586
+</td>
+<td style="text-align:right;">
+4011
+</td>
+<td style="text-align:right;">
+6.84
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+E.Manning
+</td>
+<td style="text-align:right;">
+580
+</td>
+<td style="text-align:right;">
+4348
+</td>
+<td style="text-align:right;">
+7.50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+P.Mahomes
+</td>
+<td style="text-align:right;">
+580
+</td>
+<td style="text-align:right;">
+5137
+</td>
+<td style="text-align:right;">
+8.86
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+T.Brady
+</td>
+<td style="text-align:right;">
+569
+</td>
+<td style="text-align:right;">
+4393
+</td>
+<td style="text-align:right;">
+7.72
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+J.Goff
+</td>
+<td style="text-align:right;">
+561
+</td>
+<td style="text-align:right;">
+4698
+</td>
+<td style="text-align:right;">
+8.37
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+M.Stafford
+</td>
+<td style="text-align:right;">
+557
+</td>
+<td style="text-align:right;">
+3787
+</td>
+<td style="text-align:right;">
+6.80
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+D.Carr
+</td>
+<td style="text-align:right;">
+547
+</td>
+<td style="text-align:right;">
+4061
+</td>
+<td style="text-align:right;">
+7.42
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+D.Prescott
+</td>
+<td style="text-align:right;">
+527
+</td>
+<td style="text-align:right;">
+3887
+</td>
+<td style="text-align:right;">
+7.38
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+P.Rivers
+</td>
+<td style="text-align:right;">
+514
+</td>
+<td style="text-align:right;">
+4329
+</td>
+<td style="text-align:right;">
+8.42
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+D.Watson
+</td>
+<td style="text-align:right;">
+500
+</td>
+<td style="text-align:right;">
+4158
+</td>
+<td style="text-align:right;">
+8.32
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code># Get all rushing data for eligible players
+
+qb_stats &lt;- dta %&gt;%
+  filter(PlayType == &#39;Pass&#39; &amp; Passer %in% qb_cnt$Passer &amp; Yards.Gained &lt;= 50) %&gt;%
+  filter(down != 4 &amp; !is.na(down)) %&gt;%
+  filter(!is.na(PassLocation))
+
+
+# Compare distribution of rushes for eligible players
+
+ggplot(qb_stats, aes(x = Yards.Gained, y = Passer, fill = Passer)) +
+  geom_joy(scale = 3) +
+  theme_joy() +
+  scale_fill_manual(values = rep(c(&#39;gray&#39;, &#39;lightblue&#39;), length(qb_stats$Passer) / 2)) +
+  scale_y_discrete(expand = c(0.01, 0)) +
+  scale_x_continuous(expand = c(0, 0)) +
+  theme(legend.position = &quot;none&quot;) +
+  labs(x = &quot;Yards Gained Per Play&quot; , y = &quot;Quarterback&quot;) +
+  ggtitle(&quot;Yards Gained By Quarterback&quot;)</code></pre>
+<p><img src="/post/NFL-Quarterbacks_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre class="r"><code>usage_stats &lt;- dta %&gt;% filter(!is.na(down) &amp; Passer %in% qb_cnt$Passer &amp; qtr!=5) %&gt;%
+  group_by(Passer, down, qtr) %&gt;%
+  summarise(cnt = n()) %&gt;%
+  mutate(qtr_down = paste(&quot;Q&quot;, qtr, &quot;- Down: &quot;, down, sep=&quot;&quot;))
+
+
+# pivot dataframe
+
+usage &lt;- usage_stats %&gt;% dcast(Passer ~ qtr_down, value.var = &quot;cnt&quot;)
+
+# clean data
+
+row.names(usage) &lt;- usage$Passer
+usage &lt;- usage %&gt;% select(-Passer)
+usage[is.na(usage)] &lt;- 0
+
+# normalize data
+
+usage_norm &lt;- t(apply(usage, 1, function(x) x/sum(x)))
+
+# Plot heatmap of proportions of rushes by different field locations and gaps
+
+p &lt;- d3heatmap(usage_norm,
+               colors=&quot;Blues&quot;,
+               Colv=FALSE,
+               show_grid=3)
+
+saveWidget(p, file=&quot;passer_usage_down_quarter.html&quot;)
+
+
+# Compare distribution of rushes by downs
+
+ggplot(qb_stats, aes(x = Yards.Gained, y = down)) +
+  geom_joy(scale = 1,
+           rel_min_height = .03,
+           fill = &#39;black&#39;) +
+  scale_y_discrete(expand = c(0.01, 0)) +
+  xlab(&#39;Value&#39;) +
+  facet_wrap( ~ Passer, scales = &#39;free&#39;, ncol = 3) +
+  theme_joy() +
+  theme(axis.title.y = element_blank()) +
+  labs(x = &quot;Yards gained per play&quot; , y = &quot;Down&quot;) +
+  coord_cartesian(xlim = c(-5, 60))</code></pre>
+<p><img src="/post/NFL-Quarterbacks_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(data = qb_stats, aes(x = PassLocation, y = Yards.Gained, color = PassLocation)) +
+  geom_jitter(position = position_jitter(0.2)) +
+  stat_summary(
+    fun.data = mean_sdl,
+    mult = 1,
+    geom = &quot;pointrange&quot;,
+    color = &quot;black&quot;
+  ) +
+  scale_color_brewer(palette = &quot;Dark2&quot;) + theme_minimal() +
+  facet_wrap( ~ Passer)</code></pre>
+<p><img src="/post/NFL-Quarterbacks_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<pre class="r"><code># Get proportions of rushes on different field locations
+
+qb_locations &lt;- qb_stats %&gt;% filter(PlayType==&#39;Pass&#39;) %&gt;%
+  filter(!is.na(PassLocation)) %&gt;%
+  group_by(Passer, PassLocation) %&gt;%
+  summarise(qb_cnt = n()) %&gt;%
+  mutate(freq = qb_cnt / sum(qb_cnt))
+
+loc_mat &lt;- qb_locations %&gt;% dcast(Passer ~ PassLocation, value.var = &quot;freq&quot;)
+row.names(loc_mat) &lt;- loc_mat$Passer
+loc_mat &lt;- loc_mat %&gt;% select(-Passer)
+
+
+# Plot heatmap of proportions of rushes by different field locations
+
+pheatmap(loc_mat, border=&quot;white&quot;, color = brewer.pal(9,&quot;Blues&quot;), cluster_cols=FALSE)</code></pre>
+<p><img src="/post/NFL-Quarterbacks_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(data=qb_stats %&gt;% filter(!is.na(down)), aes(x=down, y=Yards.Gained, color=down)) +
+  geom_jitter(position=position_jitter(0.2)) +
+  stat_summary(fun.data=mean_sdl, mult=1, 
+               geom=&quot;pointrange&quot;, color=&quot;black&quot;) +
+  scale_color_brewer(palette=&quot;Dark2&quot;) + theme_minimal() +
+  facet_wrap(~Passer)</code></pre>
+<p><img src="/post/NFL-Quarterbacks_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
