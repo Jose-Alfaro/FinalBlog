@@ -1,0 +1,158 @@
+---
+autoThumbnailImage: false
+title: NFL Running Back Analysis
+author: Jose Alfaro
+date: '2020-01-22'
+slug: nfl-running-back-analysis
+categories:
+  - R
+  - Sports
+tags:
+  - blog
+  - R
+  - NFL
+  - Exploration
+  - plot
+keywords:
+  - tech
+coverImage: /img/posts/RB.jpg
+thumbnailImage: /img/posts/RB-Thumb.png
+thumbnailImagePosition: left
+metaAlignment: center
+draft: false
+
+---
+The NFL is a gold mine for interesting statistics such as the average number of passing yards per quarterback, the average number of yards gained by running back, and the number of receiving yards per top receivers. In this post we conduct some exploratory analysis on the top running backs in the NFL to determine what made these running backs so successful in 2018.
+<!--more-->
+
+The NFL is a gold mine for interesting statistics such as the average number of passing yards per quarterback, the average number of yards gained by running back, and the number of receiving yards per top receivers. In this post we conduct some exploratory analysis on the top running backs in the NFL to determine what makes these running backs excel.  
+
+In order to get a subset of running backs that actively play in the NFL, we decided to select a subset of players that had at least 200 carries during the 2018 season. 
+
+```{R message=FALSE, warning=FALSE, include=FALSE}
+library(devtools)
+library(nflscrapR)
+library(tidyverse)
+library(teamcolors)
+library(ggplot2)
+library(ggjoy)
+library(dplyr)
+library(ggridges)
+library(pheatmap)
+library(d3heatmap)
+library(maditr)
+library(htmlwidgets)
+library(RColorBrewer)
+library(tidyverse)
+library(gridExtra)
+library(knitr)
+library(kableExtra)
+```
+
+```{R echo=TRUE, message=FALSE, warning=FALSE}
+setwd("C:/Users/JFA170001/Documents/Blog/best-blog/best-blog-ever")
+## Loading In Data
+dta <- readRDS("NFL2018.rds")
+## Filtering Running Backs That Have At Least 200 Carries
+min_rush_cnt <- 200
+rush_cnt <- dta %>% filter(PlayType == 'Run') %>%
+  group_by(Rusher) %>% 
+  summarise(rush_cnt = n(),
+            total_yards = sum(Yards.Gained),
+            mean_yards = round(mean(Yards.Gained), 2)) %>%
+  filter(rush_cnt >= min_rush_cnt) %>%
+  arrange(desc(rush_cnt))
+
+rush_tab <- rush_cnt
+colnames(rush_tab) <- c("Running Back", "Carries", "Total Yards", "Mean Yards")
+
+kable(rush_tab, booktabs = T,
+      caption = "Top Running Backs in 2018") %>%
+  kable_styling(position = "center", latex_options = "hold position")
+```
+
+Here we see that Ezekiel Elliott had the most carries in 2018 among all of the running backs in the NFL. We also see that Elliott led the league in total yards gained as well. However, when looking at the mean yards per play, we see that Derrick Henry had the highest average at 5.23 yards per carry.
+
+```{R message=FALSE, warning=FALSE}
+# Get all rushing data for eligible players
+
+rushing_stats <- dta %>%
+  filter(PlayType == 'Run' & Rusher %in% rush_cnt$Rusher & Yards.Gained <=50) %>%
+  filter(down!=4 & !is.na(down)) %>%
+  filter(!is.na(RunLocation))
+
+
+# Compare distribution of rushes for eligible players
+
+ggplot(rushing_stats, aes(x = Yards.Gained, y = Rusher, fill = Rusher)) +
+  geom_joy(scale = 3) +
+  theme_joy() +
+  scale_fill_manual(values = rep(c('gray', 'lightblue'), length(rushing_stats$Rusher)/2)) +
+  scale_y_discrete(expand = c(0.01, 0)) +
+  scale_x_continuous(expand = c(0, 0)) +
+  theme(legend.position="none") +
+  labs(x = "Yards Gained Per Play" ,y = "Running Back") + 
+  ggtitle("Yards By Running Back")
+```
+Although the table above gave us a good idea as to who the top running backs in the league are, it wasn't very descriptive in telling us HOW good they are. In the distibution plot above we have the same 14 running backs as before, but now we have the distributions created by the yards per play. Note that some of the distributions above go below zero. This simply means that the running back was stopped behind the line of scrimmage (in other words they lost yards).  
+Looking at the distributions above, we see that some running backs such as Todd Gurley, Ezekiell Elliott, and Chris Carson have heavy right tails which means that these running backs tend to have some runs where they run +20 yards in a single carry. Morever, when observing the peaks of these distributions, we see that overall these 14 running backs have about the same average of yards per carries (this can also be seen in the table above). 
+
+```{R message=FALSE, warning=FALSE}
+ggplot(data = rushing_stats, aes(x = RunLocation, y = Yards.Gained, color = RunLocation)) +
+  geom_jitter(position = position_jitter(0.2)) +
+  stat_summary(fun.data = mean_sdl, mult = 1, 
+               geom = "pointrange", color = "black") +
+  scale_color_brewer(palette = "Dark2") + theme_minimal() +
+  facet_wrap(~Rusher)+
+  labs(x = "Run Location", y = "Yards Gained") +
+  ggtitle("Yards Gained by Runningback (By Location)")
+```
+
+The above scatterplots depict the run locations that the running backs tend to take as well as the yards gained per location. What's interesting here is that runningbacks with higher average yards per carry, such as Saquon Barkley, Chris Carson, and Derrick Henry, tend to share  
+
+```{R message=FALSE, warning=FALSE}
+rush_locations <- rushing_stats %>% filter(PlayType=='Run') %>%
+  filter(!is.na(RunLocation)) %>%
+  group_by(Rusher, RunLocation) %>%
+  summarise(rush_cnt = n()) %>%
+  mutate(freq = rush_cnt / sum(rush_cnt))
+
+loc_mat <- rush_locations %>% dcast(Rusher ~ RunLocation, value.var = "freq")
+row.names(loc_mat) <- loc_mat$Rusher
+loc_mat <- loc_mat %>% select(-Rusher)
+
+
+# Plot heatmap of proportions of rushes by different field locations
+
+pheatmap(loc_mat, border="white", color = brewer.pal(9,"Blues"), cluster_cols=FALSE)
+```
+The heat map above divides the field into three sections: left, middle, and right. These areas are highlighted from light blue to dark blue depending on how frequent the running backs take these routes.  
+Looking at the heat map, we see that David Johnson stands out from the rest of the running backs as he is the only one that prefers to run down the middle of the fields as opposed to the outer edges. In fact, it looks as though about half of his carries in 2018 were driven down the middle. This is interesting because he had the third lowest average yards per carry among the selected running backs (averaging 3.87 yds/carry). This could be due to the fact that runs taken down the middle are more likely to be stopped at the line of scrimmage or taken for negative yards than runs taken out the left or right side of the field.
+
+
+```{R message=FALSE, warning=FALSE}
+ggplot(data=rushing_stats %>% filter(!is.na(RunGap)), aes(x=RunGap, y=Yards.Gained, color=RunGap)) +
+  geom_jitter(position=position_jitter(0.2)) +
+  stat_summary(fun.data=mean_sdl, mult=1, 
+               geom="pointrange", color="black") +
+  scale_color_brewer(palette="Dark2") + theme_minimal() +
+  facet_wrap(~Rusher)
+```
+
+```{R message=FALSE, warning=FALSE}
+# Get proportions of gaps created by different offensive line positions
+
+rush_gaps <- rushing_stats %>% filter(!is.na(RunGap)) %>%
+  filter(!is.na(RunGap)) %>%
+  group_by(Rusher, RunGap) %>%
+  summarise(rush_cnt = n()) %>%
+  mutate(freq = rush_cnt / sum(rush_cnt))
+
+gap_mat <- rush_gaps %>% dcast(Rusher ~ RunGap, value.var = "freq")
+row.names(gap_mat) <- gap_mat$Rusher
+gap_mat <- gap_mat %>% select(-Rusher)
+# Plot heatmap of proportions of rushes by different field gaps
+
+pheatmap(gap_mat, border="white", color = brewer.pal(9,"Blues"), cluster_cols=FALSE)
+
+```
